@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BudgetCopilot - Démo locale</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="badge">BudgetCopilot · Local-only</div>
+      <h1>Assistant de parsing BudgetCopilot</h1>
+      <p class="lead">
+        Transforme les demandes en langage naturel en actions JSON locales (aucun service externe).
+      </p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Contexte</h2>
+          <button id="resetContext" class="ghost">Réinitialiser</button>
+        </div>
+        <p class="hint">Le contexte reste côté client : rien n'est envoyé.</p>
+        <textarea id="contextInput" aria-label="Contexte JSON" spellcheck="false"></textarea>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Demande utilisateur</h2>
+          <div class="inline-actions">
+            <button class="ghost" data-sample="netflix">Exemple abonnement</button>
+            <button class="ghost" data-sample="installment">Exemple 3 fois</button>
+            <button class="ghost" data-sample="query">Exemple projection</button>
+          </div>
+        </div>
+        <input id="userInput" type="text" placeholder="Ex: Netflix 13,99€ le 3 de chaque mois" aria-label="Demande utilisateur" />
+        <button id="parseBtn" class="primary">Générer le JSON</button>
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Résultat JSON</h2>
+          <button id="copyBtn" class="ghost">Copier</button>
+        </div>
+        <pre id="output" aria-label="Résultat JSON">{ }
+</pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>Tout est calculé localement en HTML/CSS/JS. Aucun appel réseau.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
